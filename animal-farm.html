@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《Animal Farm》读书笔记</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'Noto Serif SC', serif;
+      background: #1a1a1a;
+      color: #ccc;
+      line-height: 1.85;
+    }
+    a { color: #d4af37; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #f0d060; }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+    .back-link:hover { color: #d4af37; }
+
+    /* ===== Header ===== */
+    .page-header { margin-bottom: 36px; }
+    .page-header h1 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #e8e8e8;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .page-header .meta {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 8px;
+    }
+    .page-header .meta span { margin-right: 22px; }
+    .header-divider {
+      width: 50px;
+      height: 1px;
+      background: #d4af37;
+      margin: 20px 0 0;
+    }
+
+    /* ===== Tags ===== */
+    .tags-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #252525;
+      color: #777;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+    .tag.star {
+      background: #2a2218;
+      color: #d4af37;
+      border-color: #3a3220;
+    }
+
+    /* ===== Quote Block ===== */
+    .quote-block {
+      border-left: 2px solid #d4af37;
+      padding: 16px 22px;
+      margin: 28px 0;
+      background: #1e1e1e;
+      border-radius: 0 4px 4px 0;
+    }
+    .quote-block p {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      color: #bbb;
+      font-style: italic;
+      letter-spacing: 1px;
+      line-height: 1.9;
+    }
+    .quote-block .attribution {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ===== Section ===== */
+    .section { margin-bottom: 42px; }
+    .section h2 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2a2a2a;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 36px;
+      height: 2px;
+      background: #d4af37;
+    }
+    .section h3 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+      margin: 22px 0 10px;
+    }
+    .section p {
+      font-size: 0.95rem;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Character Grid ===== */
+    .char-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .char-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 16px 18px;
+      transition: border-color 0.3s;
+    }
+    .char-card:hover { border-color: #d4af37; }
+    .char-card .char-name {
+      font-family: 'Georgia', serif;
+      font-size: 0.98rem;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .char-card .char-role {
+      font-size: 0.82rem;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
+    .char-card .char-desc {
+      font-size: 0.84rem;
+      color: #777;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* ===== Story Timeline ===== */
+    .timeline-item {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+    }
+    .timeline-item .ch-num {
+      font-size: 0.8rem;
+      color: #d4af37;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .timeline-item .ch-title {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: #e0e0e0;
+      margin-bottom: 6px;
+    }
+    .timeline-item .ch-desc {
+      font-size: 0.88rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ===== Theme Cards ===== */
+    .theme-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+    }
+    .theme-card .theme-name {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+    .theme-card .theme-desc {
+      font-size: 0.88rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 0 50px;
+      color: #444;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+    .footer-divider {
+      width: 30px;
+      height: 1px;
+      background: #333;
+      margin: 0 auto 18px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .char-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 1.5rem; }
+      .container { padding: 24px 16px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Back -->
+  <a href="reading-notes.html" class="back-link">← 返回阅读笔记</a>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>《Animal Farm》动物庄园</h1>
+    <div class="meta">
+      <span>📅 2026年4月22日</span>
+      <span>✏️ [英] 乔治·奥威尔</span>
+      <span>📖 政治寓言小说</span>
+    </div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- Tags -->
+  <div class="tags-bar">
+    <span class="tag star">政治寓言</span>
+    <span class="tag">极权主义</span>
+    <span class="tag">讽喻文学</span>
+    <span class="tag">苏联历史</span>
+    <span class="tag">革命异化</span>
+  </div>
+
+  <!-- 核心引语 -->
+  <div class="quote-block">
+    <p>「所有的动物一律平等，但有些动物比其他动物更加平等。」</p>
+    <p>「四条腿好，两条腿坏。」</p>
+    <div class="attribution">—— 《Animal Farm》，七诫的最终形态</div>
+  </div>
+
+  <!-- 一、人物谱系与历史影射 -->
+  <section class="section" id="characters">
+    <h2>一、人物谱系与历史影射</h2>
+    <p>奥威尔笔下每个角色都精确对应苏联历史中的真实人物或群体，构成一幅完整的讽喻拼图。</p>
+    <div class="char-grid">
+      <div class="char-card">
+        <div class="char-name">Old Major · 老猪</div>
+        <div class="char-role">影射 马克思 & 列宁</div>
+        <div class="char-desc">提出"动物主义"思想，为革命奠定理论基础。他的梦与《英格兰兽》点燃了动物们对乌托邦的渴望。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Napoleon · 拿破仑</div>
+        <div class="char-role">影射 斯大林</div>
+        <div class="char-desc">动物庄园革命的领导者之一，后通过暴力手段（恶犬）独揽大权，成为极权独裁者。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Snowball · 斯诺鲍</div>
+        <div class="char-role">影射 托洛茨基</div>
+        <div class="char-desc">革命的理想主义者，提出风车计划改善动物生活。被拿破仑驱逐后，被污名化为"革命的敌人"。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Squealer · 尖嗓</div>
+        <div class="char-role">影射 莫洛托夫</div>
+        <div class="char-desc">拿破仑的忠实喉舌，以极具煽动力的修辞为每一项暴政辩护。擅长篡改历史与双重思想。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Boxer · 拳击手</div>
+        <div class="char-role">象征 基层劳动人民</div>
+        <div class="char-desc">强壮而忠诚的马，"我会更加努力地工作"是他的信条。最终被拿破仑卖给屠马商，至死仍相信领袖。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Benjamin · 本杰明</div>
+        <div class="char-role">影射 作者本人</div>
+        <div class="char-desc">始终保持怀疑的驴，看穿一切却选择明哲保身。奥威尔称这一角色是影射自己。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Clover · 紫苜蓿</div>
+        <div class="char-role">象征 无产阶级</div>
+        <div class="char-desc">母马，善良且关心同伴，忠诚于动物主义理想，但也逐渐在谎言中迷失。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Mollie · 莫丽</div>
+        <div class="char-role">代表 小资产阶级</div>
+        <div class="char-desc">爱慕虚荣的白马，对革命毫不关心，最终逃离庄园投奔人类，象征革命中动摇的中产阶级。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">Moses · 摩西</div>
+        <div class="char-role">代表 东正教会</div>
+        <div class="char-desc">被驯服的乌鸦，反复讲述"蜜糖山"的来世美梦，用以麻痹动物、消解反抗意志。</div>
+      </div>
+      <div class="char-card">
+        <div class="char-name">九条恶犬</div>
+        <div class="char-role">象征 暴力机构</div>
+        <div class="char-desc">拿破仑秘密抚养的凶犬，用于驱逐异见者与实施恐怖统治，影射秘密警察与军队。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 二、八章情节梳理 -->
+  <section class="section" id="plot">
+    <h2>二、八章情节梳理</h2>
+
+    <div class="timeline-item">
+      <div class="ch-num">第一章</div>
+      <div class="ch-title">Old Major 的梦与《英格兰兽》</div>
+      <div class="ch-desc">十二岁的老猪 Old Major 召集全体动物，宣告人类是唯一的敌人，并提出"动物主义"的乌托邦蓝图。他教授大家唱《英格兰兽》——一首关于自由和富足的赞歌。革命的种子就此埋下。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第二章</div>
+      <div class="ch-title">琼斯被赶走与七诫的制定</div>
+      <div class="ch-desc">Old Major 去世，斯诺鲍和拿破仑成为继任领袖。酗酒成性的农场主琼斯连续一周未喂动物，愤怒的动物们自发暴动，将他赶出庄园。庄园更名为"动物庄园"，猪们制定了"七诫"写在谷仓墙上。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第三章</div>
+      <div class="ch-title">早期管理与权力萌芽</div>
+      <div class="ch-desc">猪自封为领导层，理由是他们"最聪明"。斯诺鲍组织各类动物委员会并教动物识字。表面上实行民主投票，实际上猪已开始攫取特权——牛奶和苹果被扣留给猪，理由是"脑力劳动者需要营养"。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第四章</div>
+      <div class="ch-title">斯诺鲍与拿破仑的路线之争</div>
+      <div class="ch-desc">斯诺鲍提出风车计划以减轻动物劳动负担。拿破仑强烈反对，并在周日大会上突然放出九条秘密养大的恶犬，将斯诺鲍逐出庄园。此后他废除辩论制度，所有决策由猪组成的特别委员会包办。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第五章</div>
+      <div class="ch-title">Boxer 的奉献与风车的倒塌</div>
+      <div class="ch-desc">拿破仑开始推动风车建设，动物们被迫超负荷劳动。Boxer 以"我会更加努力地工作"为信条拼命干活。一场风暴吹倒半建成的风车，拿破仑嫁祸于斯诺鲍，并展开大规模"清洗"——恶犬当众撕碎所谓"叛徒"。七诫被秘密修改。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第六章</div>
+      <div class="ch-title">猪开始与人类交易</div>
+      <div class="ch-desc">粮食短缺加剧，拿破仑将鸡蛋卖给人类换取资金。母鸡反抗被断食惩罚。拿破仑与邻近农场主谈判交易，猪开始饮用威士忌。七诫再次被悄然修改："不得饮酒"变成了"不得过量饮酒"。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第七章</div>
+      <div class="ch-title">风车战役与 Boxer 的牺牲</div>
+      <div class="ch-desc">弗雷德里克率人攻打庄园、炸毁风车。动物们打赢了"风车战役"但伤亡惨重。Boxer 累倒在工地，被拿破仑卖给屠马商。Squealer 谎称他在医院安详离世，临终遗言是"拿破仑同志永远正确"。</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="ch-num">第八章</div>
+      <div class="ch-title">七诫的彻底篡改与最后的"平等"</div>
+      <div class="ch-desc">猪完全直立行走、穿人类衣服、手持鞭子。拿破仑与人类农场主打牌，将庄园名改回"曼纳庄园"。谷仓墙上的七诫全部被抹去，只剩一句：「所有动物一律平等，但有些动物比其他动物更加平等。」——猪与人的区别已无法分辨。</div>
+    </div>
+  </section>
+
+  <!-- 三、核心主题分析 -->
+  <section class="section" id="themes">
+    <h2>三、核心主题分析</h2>
+
+    <div class="theme-card">
+      <div class="theme-name">权力的腐蚀性</div>
+      <div class="theme-desc">全书最核心的主题。从猪不参与体力劳动、独占牛奶苹果，到篡改七诫、暴力清洗异见，逐步展现权力如何使人（或猪）堕落。革命的成功并不保证理想的实现——没有制度约束，革命者终将成为新的暴君。</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-name">语言与舆论控制</div>
+      <div class="theme-desc">Squealer 是最关键的权力工具——他不断重新解释七诫、创造口号（"四条腿好，两条腿坏"）、将"交易"包装为"供应与合作的安排"。奥威尔展示了极权主义如何通过语言操控改写现实。</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-name">革命的循环异化</div>
+      <div class="theme-desc">从不平等出发的革命，最终回归不平等。新生代动物未经历过革命前的苦难，轻易接受了被美化后的奴役状态。奥威尔警告：如果历史被遗忘或篡改，一切悲剧都可能重演。</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-name">愚民与盲从</div>
+      <div class="theme-desc">羊群毫无思考地重复口号；Boxer 至死不怀疑领袖；多数动物虽感困惑却不敢深究——奥威尔批判了民众在极权面前的集体沉默与盲从，这是极权得以持续的社会基础。</div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-name">暴力垄断</div>
+      <div class="theme-desc">拿破仑的九条恶犬是权力最赤裸的体现——它们驱逐斯诺鲍、撕碎"叛徒"、震慑异议。暴力是极权统治者最后的、也是最重要的保障手段。</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <p>阅读笔记 · 2026年4月22日</p>
+  </div>
+
+</div>
+
+</body>
+</html>
