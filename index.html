@@ -137,12 +137,16 @@
 
     /* ===== Note Card ===== */
     .note-card {
+      display: block;
       background: #1e1e1e;
       border: 1px solid #2a2a2a;
       border-radius: 4px;
       padding: 22px 26px;
       margin-bottom: 10px;
       transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
     .note-card:hover {
       border-color: #d4af37;
@@ -155,9 +159,9 @@
       color: #e8e8e8;
       margin-bottom: 6px;
       letter-spacing: 0.5px;
+      transition: color 0.3s;
     }
-    .note-card .note-title a { color: inherit; }
-    .note-card .note-title a:hover { color: #d4af37; }
+    .note-card:hover .note-title { color: #d4af37; }
     .note-card .note-meta {
       font-size: 0.82rem;
       color: #555;
@@ -245,7 +249,7 @@
   <div class="container">
     <div class="stats-bar">
       <div class="stat-item">
-        <div class="stat-num" id="count-books">1</div>
+        <div class="stat-num" id="count-books">2</div>
         <div class="stat-label">读书笔记</div>
       </div>
       <div class="stat-item">
@@ -253,8 +257,8 @@
         <div class="stat-label">论文笔记</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num" id="count-concepts">0</div>
-        <div class="stat-label">概念条目</div>
+        <div class="stat-num" id="count-films">0</div>
+        <div class="stat-label">观影有感</div>
       </div>
     </div>
   </div>
@@ -266,13 +270,11 @@
     <section class="section" id="books">
       <div class="section-header">
         <h2>读书笔记</h2>
-        <span class="count">1 本</span>
+        <span class="count">2 本</span>
       </div>
 
-      <div class="note-card">
-        <div class="note-title">
-          <a href="animal-farm.html">《Animal Farm》动物庄园</a>
-        </div>
+      <a class="note-card" href="animal-farm.html">
+        <div class="note-title">《Animal Farm》动物庄园</div>
         <div class="note-meta">
           <span>📅 2026年4月22日</span>
           <span>✏️ [英] 乔治·奥威尔</span>
@@ -286,7 +288,24 @@
           <span class="tag">讽喻文学</span>
           <span class="tag">苏联历史</span>
         </div>
-      </div>
+      </a>
+
+      <a class="note-card" href="glucose-revolution.html">
+        <div class="note-title">《控糖革命》</div>
+        <div class="note-meta">
+          <span>📅 2026年6月12日</span>
+          <span>✏️ [法] 杰西·安佐斯佩</span>
+        </div>
+        <div class="note-excerpt">
+          从生物化学角度揭示血糖管理的核心原理：葡萄糖峰值如何引发氧化应激、糖化、炎症和胰岛素过量反应，进而导致从慢性疲劳到阿尔茨海默病的多种健康问题。笔记涵盖葡萄糖、果糖、胰岛素、纤维等核心概念的生化角色，短期与长期的健康影响，以及 10 个经过验证的控糖小窍门——从饮食顺序、餐前喝醋到饭后运动，用科学的"小革命"改变代谢健康。
+        </div>
+        <div class="note-tags">
+          <span class="tag star">血糖管理</span>
+          <span class="tag">营养学</span>
+          <span class="tag">代谢健康</span>
+          <span class="tag">慢性病预防</span>
+        </div>
+      </a>
 
     </section>
 
@@ -299,11 +318,11 @@
       <p class="more-link">暂无内容，持续更新中</p>
     </section>
 
-    <!-- 概念笔记 -->
-    <section class="section" id="concepts">
+    <!-- 观影有感 -->
+    <section class="section" id="films">
       <div class="section-header">
-        <h2>概念笔记</h2>
-        <span class="count">0 条</span>
+        <h2>观影有感</h2>
+        <span class="count">0 部</span>
       </div>
       <p class="more-link">暂无内容，持续更新中</p>
     </section>

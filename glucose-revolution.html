@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《控糖革命》读书笔记</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'Noto Serif SC', serif;
+      background: #1a1a1a;
+      color: #ccc;
+      line-height: 1.85;
+    }
+    a { color: #d4af37; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #f0d060; }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+    .back-link:hover { color: #d4af37; }
+
+    /* ===== Header ===== */
+    .page-header { margin-bottom: 36px; }
+    .page-header h1 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #e8e8e8;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .page-header .meta {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 8px;
+    }
+    .page-header .meta span { margin-right: 22px; }
+    .header-divider {
+      width: 50px;
+      height: 1px;
+      background: #d4af37;
+      margin: 20px 0 0;
+    }
+
+    /* ===== Tags ===== */
+    .tags-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #252525;
+      color: #777;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+    .tag.star {
+      background: #2a2218;
+      color: #d4af37;
+      border-color: #3a3220;
+    }
+
+    /* ===== Quote Block ===== */
+    .quote-block {
+      border-left: 2px solid #d4af37;
+      padding: 16px 22px;
+      margin: 28px 0;
+      background: #1e1e1e;
+      border-radius: 0 4px 4px 0;
+    }
+    .quote-block p {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      color: #bbb;
+      font-style: italic;
+      letter-spacing: 1px;
+      line-height: 1.9;
+    }
+    .quote-block .attribution {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ===== Section ===== */
+    .section { margin-bottom: 42px; }
+    .section h2 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2a2a2a;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 36px;
+      height: 2px;
+      background: #d4af37;
+    }
+    .section h3 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+      margin: 22px 0 10px;
+    }
+    .section p {
+      font-size: 0.95rem;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Concept Cards ===== */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .concept-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 16px 18px;
+      transition: border-color 0.3s;
+    }
+    .concept-card:hover { border-color: #d4af37; }
+    .concept-card .concept-name {
+      font-family: 'Georgia', serif;
+      font-size: 0.98rem;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .concept-card .concept-role {
+      font-size: 0.82rem;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
+    .concept-card .concept-desc {
+      font-size: 0.84rem;
+      color: #777;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* ===== Impact List ===== */
+    .impact-group { margin-bottom: 24px; }
+    .impact-group h3 { margin-bottom: 12px; }
+    .impact-item {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+    }
+    .impact-item .impact-name {
+      font-size: 0.93rem;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .impact-item .impact-desc {
+      font-size: 0.84rem;
+      color: #888;
+      line-height: 1.65;
+    }
+
+    /* ===== Tip Cards ===== */
+    .tip-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      transition: border-color 0.3s;
+    }
+    .tip-card:hover { border-color: #d4af37; }
+    .tip-card .tip-num {
+      font-size: 0.8rem;
+      color: #d4af37;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .tip-card .tip-title {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: #e0e0e0;
+      margin-bottom: 6px;
+    }
+    .tip-card .tip-desc {
+      font-size: 0.88rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ===== Key Insight Box ===== */
+    .insight-box {
+      background: #1e1e1e;
+      border: 1px solid #3a3220;
+      border-left: 3px solid #d4af37;
+      border-radius: 0 4px 4px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .insight-box p {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .insight-box p:last-child { margin-bottom: 0; }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 0 50px;
+      color: #444;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+    .footer-divider {
+      width: 30px;
+      height: 1px;
+      background: #333;
+      margin: 0 auto 18px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 1.5rem; }
+      .container { padding: 24px 16px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Back -->
+  <a href="index.html" class="back-link">← 返回阅读笔记</a>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>《控糖革命》</h1>
+    <div class="meta">
+      <span>📅 2026年6月12日</span>
+      <span>✏️ [法] 杰西·安佐斯佩</span>
+      <span>📖 健康 · 营养学</span>
+    </div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- Tags -->
+  <div class="tags-bar">
+    <span class="tag star">血糖管理</span>
+    <span class="tag">营养学</span>
+    <span class="tag">代谢健康</span>
+    <span class="tag">饮食科学</span>
+    <span class="tag">慢性病预防</span>
+  </div>
+
+  <!-- 核心引语 -->
+  <div class="quote-block">
+    <p>「让胰岛素水平降低才是减肥的关键，只有胰岛素水平先降下来，体重才可能减轻。」</p>
+    <p>「与摄入的热量较少但是葡萄糖峰值飙升的人相比，那些摄入的热量较多但是血糖曲线平稳的人可以减掉更多的体重。」</p>
+    <div class="attribution">—— 《控糖革命》，杰西·安佐斯佩（Glucose Goddess）</div>
+  </div>
+
+  <!-- 一、核心概念 -->
+  <section class="section" id="concepts">
+    <h2>一、核心生化概念</h2>
+    <p>理解血糖管理，需要先掌握几个关键分子及其在体内的角色。</p>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-name">葡萄糖 · Glucose</div>
+        <div class="concept-role">身体的燃料</div>
+        <div class="concept-desc">每一秒身体燃烧 8×10¹⁸ 个葡萄糖分子。它是细胞的主要能量来源，但过多会导致胰岛素飙升，引发一系列健康问题。红细胞完全依赖葡萄糖供能。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">果糖 · Fructose</div>
+        <div class="concept-role">身体的非必需燃料</div>
+        <div class="concept-desc">果糖并非身体必需。过量摄入会增加肥胖、心脏病和非酒精性脂肪肝的风险。肝脏将果糖转化为脂肪来清除它——这就是果糖导致脂肪肝的机制。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">胰岛素 · Insulin</div>
+        <div class="concept-role">代谢总开关</div>
+        <div class="concept-desc">葡萄糖 ↑ → 胰岛素 ↑ → 糖原、脂肪 ↑。胰岛素水平降低才是减肥的关键。长期高胰岛素导致胰岛素抵抗综合征，是 2 型糖尿病的根本原因。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">膳食纤维 · Fiber</div>
+        <div class="concept-role">天然的保护屏障</div>
+        <div class="concept-desc">在植物中，哪里有淀粉或糖，哪里就有纤维。纤维能减缓葡萄糖的吸收速度。但食品加工会将纤维去除，导致糖分被快速吸收，形成葡萄糖峰值。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">蔗糖 · Sucrose</div>
+        <div class="concept-role">一半葡萄糖 + 一半果糖</div>
+        <div class="concept-desc">我们吃了太多不必要的果糖，主要原因就是摄入过多蔗糖。一份蔗糖分解后一半是葡萄糖、一半是果糖。甜味只是进化中"安全可食用"的信号，不代表健康。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">代谢灵活性</div>
+        <div class="concept-role">身体的B计划</div>
+        <div class="concept-desc">当葡萄糖很少时，身体细胞能将脂肪作为能量来源。生酮饮食和阿特金斯饮食法正是通过限制碳水化合物，迫使身体燃烧脂肪供能（营养酮症）。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 二、葡萄糖峰值的健康影响 -->
+  <section class="section" id="impacts">
+    <h2>二、葡萄糖峰值的健康影响</h2>
+    <p>葡萄糖峰值的形成过程会造成氧化应激、糖化、炎症和胰岛素过量反应——这些是多种慢性病的共同土壤。</p>
+
+    <div class="impact-group">
+      <h3>短期影响</h3>
+      <div class="impact-item">
+        <div class="impact-name">1. 持续的饥饿感</div>
+        <div class="impact-desc">胰岛素水平持续偏高的直接表现。身体处于"储存模式"，不断发出进食信号。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">2. 食欲旺盛</div>
+        <div class="impact-desc">血糖快速下降后，大脑会强烈渴望高热量食物，形成恶性循环。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">3. 慢性疲劳</div>
+        <div class="impact-desc">过多葡萄糖使线粒体停止工作，能量生产受阻，导致持续疲惫。午餐后血糖偏高 → 下午犯困。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">4. 糟糕的睡眠</div>
+        <div class="impact-desc">半夜血糖急剧下降会打断深度睡眠，导致醒来后仍感疲惫。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">5. 免疫力短暂下降</div>
+        <div class="impact-desc">经历一次葡萄糖峰值后，免疫系统出现短暂故障，更容易遭到病毒感染。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">6. 妊娠糖尿病风险</div>
+        <div class="impact-desc">孕期胰岛素水平自然升高，额外分泌可能导致胰岛素抵抗，血糖失控。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">7. 潮热和盗汗</div>
+        <div class="impact-desc">更年期常见症状，多见于血糖和胰岛素水平较高的女性。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">8. 偏头痛</div>
+        <div class="impact-desc">胰岛素抵抗综合征患者的偏头痛患病率是正常人的 2 倍。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">9. 记忆和认知功能下降</div>
+        <div class="impact-desc">高葡萄糖峰值直接影响大脑的记忆力和认知功能，导致"脑雾"现象。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">10. 1 型糖尿病管理困难</div>
+        <div class="impact-desc">血糖波动越大，1 型糖尿病患者的控糖难度越高。</div>
+      </div>
+    </div>
+
+    <div class="impact-group">
+      <h3>长期危害</h3>
+      <div class="impact-item">
+        <div class="impact-name">1. 痤疮和其他皮肤问题</div>
+        <div class="impact-desc">葡萄糖峰值引发的炎症是许多皮肤问题的根源。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">2. 衰老与关节炎</div>
+        <div class="impact-desc">糖化、自由基过多和炎症使细胞功能缓慢退化，加速衰老过程。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">3. 阿尔茨海默病与痴呆</div>
+        <div class="impact-desc">频繁的葡萄糖峰值增加氧化应激，导致神经炎症和认知功能障碍。阿尔茨海默病被称为"3 型糖尿病"——即大脑中的糖尿病。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">4. 癌症风险加大</div>
+        <div class="impact-desc">炎症促使癌细胞繁殖，体内胰岛素越多，癌症扩散越快。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">5. 精神障碍</div>
+        <div class="impact-desc">血糖不稳定者的情绪更差，抑郁症状和情绪障碍更多。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">6. 肠道问题</div>
+        <div class="impact-desc">炎症造成肠壁细胞产生漏洞（肠漏症），有毒物质穿透肠壁，引发食物过敏和免疫性疾病。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">7. 心脏病</div>
+        <div class="impact-desc">高胰岛素促使肝脏产生 β 型低密度脂蛋白——小而密集的胆固醇，易黏附血管壁并氧化沉积，形成斑块，阻碍血液流动。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">8. 不孕症和多囊卵巢综合征</div>
+        <div class="impact-desc">胰岛素刺激卵巢分泌更多雄激素，阻碍雄激素向雌激素的转换。男性方面，高血糖与精子质量下降和勃起功能障碍相关。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">9. 胰岛素抵抗综合征与 2 型糖尿病</div>
+        <div class="impact-desc">长期高胰岛素 → 细胞对胰岛素产生抵抗 → 需要越来越多的胰岛素 → 2 型糖尿病。这是绝大多数慢性代谢病的共同路径。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">10. 非酒精性脂肪肝病</div>
+        <div class="impact-desc">肝脏不断将过量果糖转化为脂肪，最终肝脏自身变"胖"。</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-name">11. 皱纹和白内障</div>
+        <div class="impact-desc">糖化发生于全身——眼睛中的糖化蛋白累积会阻挡光线，形成白内障；皮肤中的糖化导致皱纹。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三、控糖小窍门 -->
+  <section class="section" id="tips">
+    <h2>三、10 个控糖小窍门</h2>
+    <p>以下方法来自"控糖女神社区"的实践验证，简单可行且效果显著。</p>
+
+    <div class="tip-card">
+      <div class="tip-num">窍门 1</div>
+      <div class="tip-title">正确的饮食顺序</div>
+      <div class="tip-desc">先吃纤维（蔬菜），然后吃蛋白质和脂肪，最后吃淀粉和糖类。这个顺序能显著减缓葡萄糖的吸收速度，使血糖曲线更平稳。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 2</div>
+      <div class="tip-title">每餐前加一道绿色开胃菜</div>
+      <div class="tip-desc">开胃菜与随后淀粉类食物的最佳比例是 1:1。可选择任何蔬菜（包括胡萝卜等非绿色蔬菜），也可添加鹰嘴豆泥或小扁豆等富含纤维的豆类。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 3</div>
+      <div class="tip-title">停止计算热量</div>
+      <div class="tip-desc">健康和减肥取决于身体吸收的物质种类，而非热量数字。热量较高但血糖平稳的人，比热量较低但葡萄糖峰值飙升的人减重更多。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 4</div>
+      <div class="tip-title">平稳早餐后的血糖曲线</div>
+      <div class="tip-desc">制作咸香早餐而非甜味早餐：确保含有蛋白质，添加脂肪（如牛油果、鸡蛋），额外补充纤维，选择性添加淀粉或完整水果。避免纯碳水早餐（如麦片、面包、果汁）。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 5</div>
+      <div class="tip-title">吃自己喜欢的糖，所有糖都一样</div>
+      <div class="tip-desc">从葡萄糖角度看，蜂蜜、红糖、白糖没有本质区别。尽量选择水果作为甜品。人造甜味剂中推荐无副作用的：阿洛酮糖、罗汉果、甜叶菊、赤藓糖醇。避免：阿斯巴甜、麦芽糖醇、三氯蔗糖、木糖醇、安赛蜜。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 6</div>
+      <div class="tip-title">选择餐后甜点而不是甜甜的零食</div>
+      <div class="tip-desc">空腹吃甜食 → 葡萄糖峰值剧烈飙升。餐后吃同样的甜食 → 已有纤维、蛋白质和脂肪缓冲，峰值显著减缓。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 7</div>
+      <div class="tip-title">吃饭之前喝点儿醋</div>
+      <div class="tip-desc">在一大杯水中加入一汤匙醋（米醋、白酒醋、红酒醋、苹果醋等），餐前几分钟饮用。醋酸进入血液后渗透到肌肉，刺激肌肉更快制造糖原，使葡萄糖以更高效率被吸收，峰值更小。一项小型研究中，4/7 的停经 PCOS 女性在每天喝醋汁后 40 天内恢复了月经。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 8</div>
+      <div class="tip-title">饭后动起来</div>
+      <div class="tip-desc">葡萄糖到达峰值约需 70 分钟。饭后 10 分钟适度锻炼（散步、深蹲），就能显著降低这顿饭引发的葡萄糖峰值。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 9</div>
+      <div class="tip-title">如果一定要吃零食，选咸香美味的</div>
+      <div class="tip-desc">避开糖果、能量棒等甜食，也避开淀粉类（同样转化为葡萄糖）。选择咸香美味的小吃：坚果、鸡蛋、奶酪、希腊酸奶等。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">窍门 10</div>
+      <div class="tip-title">为碳水化合物"穿上外衣"</div>
+      <div class="tip-desc">吃碳水化合物时，一定搭配纤维、蛋白质或脂肪。不要"裸吃"面包、米饭或面食——给它们加上蔬菜、肉类、奶酪或坚果酱。</div>
+    </div>
+  </section>
+
+  <!-- 四、核心洞见 -->
+  <section class="section" id="insights">
+    <h2>四、核心洞见</h2>
+
+    <div class="insight-box">
+      <p><strong>血糖曲线，而非热量，才是健康的关键。</strong>平稳的血糖曲线意味着更低的胰岛素、更少的脂肪储存、更稳定的精力和更慢的衰老。传统的"少吃多动"模型忽视了激素（尤其是胰岛素）的核心作用。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>饮食顺序比饮食内容更重要。</strong>同样的食物，先吃蔬菜再吃主食，与反过来吃，对血糖的影响截然不同。纤维是天然的"缓冲器"，在胃中形成网状结构，减缓糖分释放。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>食品工业去除了天然的保护机制。</strong>自然界中淀粉和糖总是伴随纤维存在，但加工食品将纤维去除、将糖浓缩。读懂配料表——配料按含量降序排列，糖排在前五位就说明含糖量很高。注意糖有 50+ 种别名。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>运动是最快见效的"控糖药"。</strong>饭后 70 分钟内的适度活动，就能让肌肉直接吸收血液中的葡萄糖，无需胰岛素参与。这是最自然、最即时的血糖调节方式。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>控糖不是戒糖，而是改变糖的"上下文"。</strong>不必完全放弃甜食——餐后享用、搭配纤维和蛋白质、先喝醋汁、然后运动，就能大幅降低同量糖分对身体的冲击。这是一场"革命"而非"苦行"。</p>
+    </div>
+  </section>
+
+  <!-- 五、应对食欲的实操指南 -->
+  <section class="section" id="cravings">
+    <h2>五、食欲来袭时的应对策略</h2>
+    <div class="tip-card">
+      <div class="tip-num">第一步</div>
+      <div class="tip-title">给食欲 20 分钟的冷静期</div>
+      <div class="tip-desc">血糖下降后，肝脏会在 20 分钟内迅速介入，将储存的糖原释放到血液，使血糖恢复正常。很多"饥饿"其实是暂时的血糖波动。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">第二步</div>
+      <div class="tip-title">使用抑制食欲的撒手锏</div>
+      <div class="tip-desc">喝拌入甘草根茶的咖啡、加一勺椰子油的咖啡、薄荷茶、泡菜汁，或一大杯加了一撮盐的水。嚼口香糖、刷牙、出去散步也有效。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">第三步</div>
+      <div class="tip-title">如果决定现在吃</div>
+      <div class="tip-desc">先喝一大杯拌了 1 汤匙苹果醋的醋汁，然后吃一个鸡蛋、一把坚果、几勺 5% 脂肪希腊酸奶或一些烤西蓝花，最后再吃你想吃的。</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">第四步</div>
+      <div class="tip-title">进食后 1 小时内动起来</div>
+      <div class="tip-desc">散步、深蹲、任何形式的肌肉活动都能帮助肌肉吸收葡萄糖，拉平血糖曲线。</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <p>阅读笔记 · 2026年6月12日</p>
+  </div>
+
+</div>
+
+</body>
+</html>
