@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《减肥不是挨饿，而是与食物合作》读书笔记</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'Noto Serif SC', serif;
+      background: #1a1a1a;
+      color: #ccc;
+      line-height: 1.85;
+    }
+    a { color: #d4af37; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #f0d060; }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+    .back-link:hover { color: #d4af37; }
+
+    /* ===== Header ===== */
+    .page-header { margin-bottom: 36px; }
+    .page-header h1 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #e8e8e8;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .page-header .meta {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 8px;
+    }
+    .page-header .meta span { margin-right: 22px; }
+    .header-divider {
+      width: 50px;
+      height: 1px;
+      background: #d4af37;
+      margin: 20px 0 0;
+    }
+
+    /* ===== Tags ===== */
+    .tags-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #252525;
+      color: #777;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+    .tag.star {
+      background: #2a2218;
+      color: #d4af37;
+      border-color: #3a3220;
+    }
+
+    /* ===== Quote Block ===== */
+    .quote-block {
+      border-left: 2px solid #d4af37;
+      padding: 16px 22px;
+      margin: 28px 0;
+      background: #1e1e1e;
+      border-radius: 0 4px 4px 0;
+    }
+    .quote-block p {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      color: #bbb;
+      font-style: italic;
+      letter-spacing: 1px;
+      line-height: 1.9;
+    }
+    .quote-block .attribution {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ===== Section ===== */
+    .section { margin-bottom: 42px; }
+    .section h2 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2a2a2a;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 36px;
+      height: 2px;
+      background: #d4af37;
+    }
+    .section h3 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+      margin: 22px 0 10px;
+    }
+    .section p {
+      font-size: 0.95rem;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Brain Model Grid ===== */
+    .brain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .brain-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 16px;
+      transition: border-color 0.3s;
+    }
+    .brain-card:hover { border-color: #d4af37; }
+    .brain-card .brain-name {
+      font-family: 'Georgia', serif;
+      font-size: 0.98rem;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .brain-card .brain-role {
+      font-size: 0.82rem;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
+    .brain-card .brain-desc {
+      font-size: 0.84rem;
+      color: #777;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* ===== Principle Cards ===== */
+    .principle-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      transition: border-color 0.3s;
+    }
+    .principle-card:hover { border-color: #d4af37; }
+    .principle-card .principle-num {
+      font-size: 0.8rem;
+      color: #d4af37;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .principle-card .principle-title {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: #e0e0e0;
+      margin-bottom: 6px;
+    }
+    .principle-card .principle-desc {
+      font-size: 0.88rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ===== Impact List ===== */
+    .impact-item {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+    }
+    .impact-item .impact-name {
+      font-size: 0.93rem;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .impact-item .impact-desc {
+      font-size: 0.84rem;
+      color: #888;
+      line-height: 1.65;
+    }
+
+    /* ===== Key Insight Box ===== */
+    .insight-box {
+      background: #1e1e1e;
+      border: 1px solid #3a3220;
+      border-left: 3px solid #d4af37;
+      border-radius: 0 4px 4px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .insight-box p {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .insight-box p:last-child { margin-bottom: 0; }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 0 50px;
+      color: #444;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+    .footer-divider {
+      width: 30px;
+      height: 1px;
+      background: #333;
+      margin: 0 auto 18px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .brain-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 1.5rem; }
+      .container { padding: 24px 16px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Back -->
+  <a href="index.html" class="back-link">← 返回阅读笔记</a>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>《减肥不是挨饿，而是与食物合作》</h1>
+    <div class="meta">
+      <span>📅 2026年6月10日</span>
+      <span>✏️ [美] 伊芙琳·特里波尔 / 埃利斯·莱斯驰</span>
+      <span>📖 健康 · 饮食心理学</span>
+    </div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- Tags -->
+  <div class="tags-bar">
+    <span class="tag star">直觉饮食</span>
+    <span class="tag">饮食心理学</span>
+    <span class="tag">反节食</span>
+    <span class="tag">身心合一</span>
+    <span class="tag">代谢健康</span>
+  </div>
+
+  <!-- 核心引语 -->
+  <div class="quote-block">
+    <p>「如果你不喜欢，就不要吃；如果你很喜欢，就好好品尝。」</p>
+    <p>「一个所谓健康的饮食计划，如果不能帮助人们永久保持体重，那么它肯定是不健康的。」</p>
+    <div class="attribution">—— 《减肥不是挨饿，而是与食物合作》</div>
+  </div>
+
+  <!-- 一、核心理念：与食物合作 -->
+  <section class="section" id="core-concept">
+    <h2>一、核心理念：什么是"与食物合作"</h2>
+    <p>所谓"与食物合作"，就是让食物直接满足身体的本能需求，中间不受额外情感和想法的影响。它最重要的一点，是要学会倾听身体的信号，尊重自己的饥饿感和饱胀感，不带任何偏见地承认自己对于食物的本能反应。</p>
+
+    <div class="insight-box">
+      <p><strong>节食的根本悖论：</strong>我们的身体是会自我调节的。当身体感觉到能量来源不足时，就会自动开启节约模式，充分利用每单位卡路里，从而放慢新陈代谢的速度。节食的强度越大，身体感觉到的卡路里紧缺程度也就越大，新陈代谢随之便会变得更缓慢。从生命机理上来说，身体对节食的感受和挨饿没有两样。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>减肥的真正前提：</strong>要想加快新陈代谢，必须摄入足够的卡路里，不然身体一旦拉响亏空的警报，新陈代谢自然便会放缓。这种来源于生命本能的反抗，会比我们想象得更加迅猛、激烈——宛如专制下的革命、决堤后的洪水、禁欲后的释放，必然势不可当。</p>
+    </div>
+  </section>
+
+  <!-- 二、三脑模型 -->
+  <section class="section" id="brain-model">
+    <h2>二、三脑协调模型</h2>
+    <p>"与食物合作"需要达成三脑的协调，让本能、情感和理性思维和谐统一，使你的理性脑与你的舌头和肠胃保持高度一致。</p>
+    <div class="brain-grid">
+      <div class="brain-card">
+        <div class="brain-name">爬行动物脑</div>
+        <div class="brain-role">本能 · 生存中枢</div>
+        <div class="brain-desc">负责呼吸、心跳、消化、食欲和性欲等基本生命活动。即使处于深睡眠中也持续运行。它把最原始的饥饿感和饱胀感传递给情绪脑，不涉及任何感情和理性思考。</div>
+      </div>
+      <div class="brain-card">
+        <div class="brain-name">哺乳脑 · 情绪脑</div>
+        <div class="brain-role">情感 · 情绪加工</div>
+        <div class="brain-desc">对来自爬行动物脑的原始信号进行情绪加工——恐惧、快乐、焦虑、满足都在此产生。它将经过情绪染色的信息传递给理性脑。</div>
+      </div>
+      <div class="brain-card">
+        <div class="brain-name">理性脑 · 高级脑</div>
+        <div class="brain-role">认知 · 决策中枢</div>
+        <div class="brain-desc">虽然无法控制本能，却能对本能进行认知和思考，进而产生想法，最终做出决定——吃什么，吃多少。理性和情绪是上帝赐给人类的礼物。</div>
+      </div>
+    </div>
+    <p style="margin-top: 16px;">三脑失调时，节食行为就出现了：理性脑强行压制爬行动物脑的饥饿信号，情绪脑将食物标记为"敌人"——最终导致暴食反弹。与食物合作的本质，就是恢复三脑之间的信任和协调。</p>
+  </section>
+
+  <!-- 三、节食的生物学陷阱 -->
+  <section class="section" id="diet-traps">
+    <h2>三、节食的生物学陷阱</h2>
+
+    <div class="impact-item">
+      <div class="impact-name">1. 新陈代谢放缓</div>
+      <div class="impact-desc">身体感知到能量不足 → 开启节约模式 → 充分利用每单位卡路里 → 代谢变慢 → 更难消耗脂肪。</div>
+    </div>
+
+    <div class="impact-item">
+      <div class="impact-name">2. 饥饿感反扑</div>
+      <div class="impact-desc">节食的强度越大，身体感觉到的卡路里紧缺程度就越大。你终究无法抗拒生命的机理——当身体处于饥饿状态时，你需要也必须给它提供食物。</div>
+    </div>
+
+    <div class="impact-item">
+      <div class="impact-name">3. 暴食的必然性</div>
+      <div class="impact-desc">被压抑的本能需求会在某一刻集中爆发——"宛如专制下的革命、决堤后的洪水、禁欲后的释放"，这不是意志力的问题，而是生理的必然。</div>
+    </div>
+
+    <div class="impact-item">
+      <div class="impact-name">4. 节食—暴食的恶性循环</div>
+      <div class="impact-desc">节食 → 代谢变慢 + 饥饿感累积 → 暴食 → 内疚 + 体重反弹 → 更严格的节食。每一次循环都让身体更"擅长"储存脂肪。</div>
+    </div>
+  </section>
+
+  <!-- 四、十大原则 -->
+  <section class="section" id="principles">
+    <h2>四、与食物合作的十大原则</h2>
+    <p>直觉饮食法建立在十个核心原则之上，以下为已整理的关键原则及其实践要点。</p>
+
+    <div class="principle-card">
+      <div class="principle-num">原则一</div>
+      <div class="principle-title">摒弃节食心态</div>
+      <div class="principle-desc">下定决心彻底放弃节食。捍卫自己对饮食的控制权——绝对不要让别人告诉你吃什么、什么时候吃、吃多少，也绝对不要允许别人评判自己的体重和体形。只有放下"瘦即是好"的外部标准，才能真正听见身体内部的声音。</div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">原则二</div>
+      <div class="principle-title">尊重自己的饥饿感</div>
+      <div class="principle-desc">学会倾听身体发出的细微信号。一旦确认处于生理性饥饿状态，马上吃东西。如果饿过了头，就很难再准确判断真正想吃什么、什么时候吃饱了。若长时间感觉不到饿意，可以尝试每 3–4 小时规律进食，让身体重新学会发出可靠的饥饿信号。</div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">原则三</div>
+      <div class="principle-title">与食物和平相处</div>
+      <div class="principle-desc">无条件地允许自己吃任何想吃的食物。不要剥夺自己吃感兴趣食物的权利——越是禁止，渴望越强烈。在吃的同时感受身体的反应，感觉舌尖的满足感，将这种体验记在心里。保证自己喜欢的食物充足供应。</div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">原则四</div>
+      <div class="principle-title">赶走"食物警察"</div>
+      <div class="principle-desc">留心内心那些消极的声音——"这个不能吃""你吃太多了""你今天又失败了"——它们是节食文化植入的"食物警察"。助长内心有益的声音，帮助自己渡过难关，让与食物的关系变得更和谐。</div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">原则五</div>
+      <div class="principle-title">感受自己的"吃饱感"</div>
+      <div class="principle-desc">留心身体发出的"吃饱了"的信号——前提是你无条件地允许自己进食。如果饿过头了，强烈的进食欲望会让你鉴别"吃饱了"变得愈发困难。摒弃"怕浪费所以光盘"的想法。对照"饥饿发现量表"，在饱腹感处于第 3 或第 4 等级时停下来。</div>
+    </div>
+  </section>
+
+  <!-- 五、核心洞见 -->
+  <section class="section" id="insights">
+    <h2>五、核心洞见</h2>
+
+    <div class="insight-box">
+      <p><strong>饥饿感不是敌人，而是盟友。</strong>它是身体最原始、最诚实的信号系统。当我们学会尊重它而非对抗它，身体就不再需要启动"饥荒模式"，新陈代谢自然回归正常节奏。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>"禁止"制造欲望。</strong>心理学中的"白熊效应"在饮食领域同样适用——你越是禁止自己吃某种食物，对它的渴望就越强烈。无条件允许，反而消解了禁忌带来的诱惑力。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>三脑协调才是真正的自律。</strong>真正的饮食自律不是理性脑对本能脑的暴力镇压，而是三脑达成共识后的和谐行动。当理性、情绪和本能朝着同一方向前进时，不再需要"意志力"来维持。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>永久的体重管理不能靠"战争"来实现。</strong>任何将身体视为敌人的减肥方法最终都会失败。与食物合作的核心隐喻是：从"对抗"转向"合作"——倾听、尊重、回应身体的真实需求，而非用外部规则去压制它。</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <p>阅读笔记 · 2026年6月10日</p>
+  </div>
+
+</div>
+
+</body>
+</html>

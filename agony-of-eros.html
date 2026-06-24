@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《爱欲之死》读书笔记</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'Noto Serif SC', serif;
+      background: #1a1a1a;
+      color: #ccc;
+      line-height: 1.85;
+    }
+    a { color: #d4af37; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #f0d060; }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+    .back-link:hover { color: #d4af37; }
+
+    /* ===== Header ===== */
+    .page-header { margin-bottom: 36px; }
+    .page-header h1 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #e8e8e8;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .page-header .meta {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 8px;
+    }
+    .page-header .meta span { margin-right: 22px; }
+    .header-divider {
+      width: 50px;
+      height: 1px;
+      background: #d4af37;
+      margin: 20px 0 0;
+    }
+
+    /* ===== Tags ===== */
+    .tags-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #252525;
+      color: #777;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+    .tag.star {
+      background: #2a2218;
+      color: #d4af37;
+      border-color: #3a3220;
+    }
+
+    /* ===== Quote Block ===== */
+    .quote-block {
+      border-left: 2px solid #d4af37;
+      padding: 16px 22px;
+      margin: 28px 0;
+      background: #1e1e1e;
+      border-radius: 0 4px 4px 0;
+    }
+    .quote-block p {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      color: #bbb;
+      font-style: italic;
+      letter-spacing: 1px;
+      line-height: 1.9;
+    }
+    .quote-block .attribution {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ===== Section ===== */
+    .section { margin-bottom: 42px; }
+    .section h2 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2a2a2a;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 36px;
+      height: 2px;
+      background: #d4af37;
+    }
+    .section h3 {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+      margin: 22px 0 10px;
+    }
+    .section p {
+      font-size: 0.95rem;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Concept Cards ===== */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .concept-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 16px 18px;
+      transition: border-color 0.3s;
+    }
+    .concept-card:hover { border-color: #d4af37; }
+    .concept-card .concept-name {
+      font-family: 'Georgia', serif;
+      font-size: 0.98rem;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .concept-card .concept-role {
+      font-size: 0.82rem;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
+    .concept-card .concept-desc {
+      font-size: 0.84rem;
+      color: #777;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* ===== Argument Cards ===== */
+    .argument-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      transition: border-color 0.3s;
+    }
+    .argument-card:hover { border-color: #d4af37; }
+    .argument-card .argument-title {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+    .argument-card .argument-desc {
+      font-size: 0.88rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ===== Quote Collections ===== */
+    .quote-item {
+      background: #1e1e1e;
+      border-left: 2px solid #3a3220;
+      border-radius: 0 4px 4px 0;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+    }
+    .quote-item p {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      color: #bbb;
+      font-style: italic;
+      line-height: 1.85;
+    }
+    .quote-item .quote-source {
+      font-style: normal;
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    /* ===== Key Insight Box ===== */
+    .insight-box {
+      background: #1e1e1e;
+      border: 1px solid #3a3220;
+      border-left: 3px solid #d4af37;
+      border-radius: 0 4px 4px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .insight-box p {
+      font-size: 0.95rem;
+      color: #bbb;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .insight-box p:last-child { margin-bottom: 0; }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 0 50px;
+      color: #444;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+    .footer-divider {
+      width: 30px;
+      height: 1px;
+      background: #333;
+      margin: 0 auto 18px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 1.5rem; }
+      .container { padding: 24px 16px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Back -->
+  <a href="index.html" class="back-link">← 返回阅读笔记</a>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>《爱欲之死》</h1>
+    <div class="meta">
+      <span>📅 2026年5月26日</span>
+      <span>✏️ [德] 韩炳哲</span>
+      <span>📖 哲学 · 社会批判</span>
+    </div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- Tags -->
+  <div class="tags-bar">
+    <span class="tag star">爱欲哲学</span>
+    <span class="tag">他者理论</span>
+    <span class="tag">社会批判</span>
+    <span class="tag">自恋主义</span>
+    <span class="tag">消费社会</span>
+  </div>
+
+  <!-- 核心引语 -->
+  <div class="quote-block">
+    <p>「纯粹意义上的爱，曾经被置于一个悠久的历史传统之中的爱，如今受到了威胁，甚至已经死亡；不管怎样，当今的爱是病态的。」</p>
+    <p>「当今社会越来越陷入同质化的地狱，无法产生爱欲的经验，因为爱欲的前提是作为他者的非对称性和外部性。」</p>
+    <div class="attribution">—— 韩炳哲，《爱欲之死》</div>
+  </div>
+
+  <!-- 一、核心论点 -->
+  <section class="section" id="thesis">
+    <h2>一、核心论点：爱欲为何而死</h2>
+    <p>韩炳哲试图阐明这样一个观点：纯粹意义上的爱——那种曾经被置于悠久历史传统之中、需要冒险和牺牲的爱——在当代社会中已经受到致命威胁。爱欲的死亡并非偶然，而是多重社会力量合力的结果：自恋主义的泛滥、他者的消失、消费逻辑对情感的驯化，以及信息过载对想象力的扼杀。</p>
+    <p>爱欲的前提是"作为他者的非对称性和外部性"——即对方必须是与我不同的、不可化约的、位于我的秩序之外的独立存在。然而当代社会通过同质化、商品化和透明化，系统地消除了这种差异和神秘。</p>
+  </section>
+
+  <!-- 二、自恋与他者的消亡 -->
+  <section class="section" id="narcissism">
+    <h2>二、自恋与他者的消亡</h2>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-name">自恋 · Narzissmus</div>
+        <div class="concept-role">界限模糊的自我投射</div>
+        <div class="concept-desc">自恋主体的界限是模糊的，整个世界只是"自我"的一个倒影。他者身上的差异性无法被感知和认可，在任何时空中能被一再感知的只有"自我"。他者的消亡是一个充满张力的过程，不幸的是，它的发生并未引起人们的关注。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">自爱 · Eigenliebe</div>
+        <div class="concept-role">有界限的自我关照</div>
+        <div class="concept-desc">自爱的主体以自我为出发点，但与他者明确划清界限。自爱承认他者作为独立个体的存在，而非将其吸收为自我的镜像。健康的爱需要自爱——而非自恋——作为基础。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">非对称性</div>
+        <div class="concept-role">爱欲的根本前提</div>
+        <div class="concept-desc">他者不是与我平行或可互换的另一个自我，而是以绝对差异的方式出现。正是这种不可化约的差异，使我意识到"我"并非万物尺度，从而激发探索、冒险与奉献的冲动。</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-name">外部性</div>
+        <div class="concept-role">他者的不可内化</div>
+        <div class="concept-desc">他者位于我的既定秩序之外，是我的视野、经验与自我理解的边界。爱欲通过把他者引入自身内部来不断重写自我。当消费社会将一切关系商品化，他者被降格为"可比较、可替换"的对象，其外部性被剥夺。</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>"同质化的地狱"：</strong>如果一切都被标准化、同类化，他者的独特性被抹平，爱欲赖以发生的张力也就消失。人们在追求同好者的那份舒适中，放弃了对真正他者的渴望——被追求的是一种舒服的、最终缓慢沉淀在意识之内的熟悉感。超验性在当今的爱情中不复存在。</p>
+    </div>
+  </section>
+
+  <!-- 三、自我剥削与绩效社会 -->
+  <section class="section" id="self-exploitation">
+    <h2>三、自我剥削与绩效社会</h2>
+    <p>韩炳哲将爱欲的死亡置于更大的社会诊断之中：从规训社会到绩效社会的转型。</p>
+
+    <div class="argument-card">
+      <div class="argument-title">从"应当"到"能够"</div>
+      <div class="argument-desc">规训社会被禁令、惩罚和情态动词"应当"所统治。效率社会则完全被情态动词"能够"所控制。"你能"二字带来的强大压力，通常可以毁灭一个劳动主体。"你能够"甚至比"你应当"更具强迫性——自我强迫比强迫他人更有效，因为自己不可能反抗自己的意志。</div>
+    </div>
+
+    <div class="argument-card">
+      <div class="argument-title">自我剥削的陷阱</div>
+      <div class="argument-desc">创业者无须臣服于一个剥削自己的"他者"，因而是"自由"的劳动主体——但这并非真正的自由。他将自己分解为无数自由的零部件，然后向内剥削自己。自我剥削比剥削他人的效率更高，因为它带来一种类似自由的感觉。今天的我们尚处于一个主仆合一的历史阶段。</div>
+    </div>
+
+    <div class="argument-card">
+      <div class="argument-title">纯粹积极性的贫困</div>
+      <div class="argument-desc">纯粹积极的、由肯定性主导的地方，是不存在精神的。生命力是一种复杂的现象，仅有积极面的生命是没有生命力的——"只有一件事物、一个人身上体现出矛盾性且具备容纳和接受这种矛盾性的能力的时候，才能被称为是有生命力的。"</div>
+    </div>
+  </section>
+
+  <!-- 四、消费社会对爱情的驯化 -->
+  <section class="section" id="consumer-love">
+    <h2>四、消费社会对爱情的驯化</h2>
+
+    <div class="argument-card">
+      <div class="argument-title">爱情被驯化成消费模式</div>
+      <div class="argument-desc">随着所有生活领域出现一种积极化趋势，爱情也被驯化成一种消费模式——不存在风险，不考量胆识，杜绝疯癫和狂迷，避免产生任何消极和被否定的感觉。人们满足于追求同好者的那份舒适，放弃了对他者的渴望。</div>
+    </div>
+
+    <div class="argument-card">
+      <div class="argument-title">选择自由与愿望的"理性化"</div>
+      <div class="argument-desc">日益增长的选择自由带来了愿望的"理性化"。愿望不再是无意识的，而是受有意识选择的支配。愿望的主体被迫面临各种源源不断的选择以及理性层面对他者的理想评判标准——他必须做出选择并为之负责。在一个不设限的、充满可能性的世界，爱情反而变得不可能。</div>
+    </div>
+
+    <div class="argument-card">
+      <div class="argument-title">色情与去神圣化</div>
+      <div class="argument-desc">资本主义加速了社会的色情化进程，它将一切事物当作商品展出。裸露的面孔仅剩下展示功能——这才是色情伤风败俗的根本原因。它将爱情粗鄙化，变成色情。如今的爱情是且仅是温暖、亲密和舒适刺激的代名词，昭示了神圣的情欲的毁灭。</div>
+    </div>
+  </section>
+
+  <!-- 五、信息时代与想象力的丧失 -->
+  <section class="section" id="information-imagination">
+    <h2>五、信息时代与想象力的丧失</h2>
+
+    <div class="insight-box">
+      <p><strong>信息过载压抑想象力。</strong>新的通信媒体并没有让想象力插上翅膀，相反，它们造成的信息密集——特别是视觉信息的密集——压抑了想象力。超高清视觉效果对想象力无益，色情片就是通过将视觉信息无限倍地扩大来毁掉人们对情欲的想象的。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>信息缺失缔造他者。</strong>对他者的建构不取决于信息的多寡——信息缺失的否定性恰恰缔造了他者的存在，赋予他者以更高级形式的存在。信息匮乏导致会"高估"他人，将他人的"价值看得过高"，甚至将其"理想化"。而互联网想象以堆砌的碎片化符号为支撑，缺乏整体性——人们看似掌握了大量信息，却不再有能力将他人理想化。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>"原始距离"的必要性。</strong>原始距离可以催生出感官直觉的仪式感——当你意识到对方是一个与你不同的、独立的、神秘的存在，你会产生一种敬畏，不敢轻易冒犯，不敢随意物化。这种敬畏恰恰保护了对方的"你性"，让你在接近他者时保持一种尊重距离的姿态。</p>
+    </div>
+  </section>
+
+  <!-- 六、爱欲与理性、政治 -->
+  <section class="section" id="eros-reason-politics">
+    <h2>六、爱欲与理性、政治</h2>
+
+    <div class="argument-card">
+      <div class="argument-title">爱欲是思考的动力</div>
+      <div class="argument-desc">在哲学和理论的开端，理性与爱欲之间有着极为密切的关联。如若失去爱欲的力量，理性也会变得无力。真正的思考会随着爱欲一起升华——"必须做一个好朋友、好情人，才能有思考的能力。"没有爱欲，思考就丧失了活力，失去了不安，变得重复和被动。爱欲刺激了思考，使人有意愿去追求"独一无二的他者"。</div>
+    </div>
+
+    <div class="argument-card">
+      <div class="argument-title">爱欲与政治理想</div>
+      <div class="argument-desc">爱欲存在着一种政治的变形。每一个爱情故事背后都有政治活动的背景。政治活动作为集体对另一种生活方式、另一个更公平世界的向往，与爱欲有着深层次的制约关系。爱欲可以成为政治斗争的能量源泉。安德烈·布勒东曾赋予爱欲这样无所不包的意涵："唯一与人类和宇宙相称的艺术，唯一能够引导他胜过星辰的，是爱欲。"</div>
+    </div>
+
+    <div class="argument-card">
+      <div class="argument-title">数据无法替代理论</div>
+      <div class="argument-desc">基于数据的计算式思考缺乏他者的抗力，缺乏爱欲的思考仅仅是重复的叠加。以数据来支撑的思考是不存在的——数据支撑的只能是运算。思考是否定性的、无法计算的，应当先于"数据"而存在。无边无际增长的数据和信息量使科学极大程度上远离了理论和思想。</div>
+    </div>
+  </section>
+
+  <!-- 七、核心摘录 -->
+  <section class="section" id="quotes">
+    <h2>七、核心摘录</h2>
+
+    <div class="quote-item">
+      <p>"爱不是一种可能性，它并不基于我们的努力和积极态度而存在，它可以没来由地打击我们，伤害我们。"</p>
+      <div class="quote-source">—— 韩炳哲</div>
+    </div>
+
+    <div class="quote-item">
+      <p>"在爱情中，从实质的角度看，存在着被我们用于描述绝对精神这一基本概念的时刻，即由他者回归到自我从而达成生命的统一。"</p>
+      <div class="quote-source">—— 黑格尔（韩炳哲引用）</div>
+    </div>
+
+    <div class="quote-item">
+      <p>"我爱你，而你也爱我，我在你中找到我，而你也想念我，我将自己舍弃，进入你，而你接受我，于是我找回了自己。"</p>
+      <div class="quote-source">—— 马尔西里奥·费奇诺（韩炳哲引用）</div>
+    </div>
+
+    <div class="quote-item">
+      <p>"爱情能够证明，生命的时间存在永恒，它的本质是忠诚，即我对你言而有信。这也是幸福的根基！是的，爱情带来的幸福是时间可以永恒的最好证明。"</p>
+      <div class="quote-source">—— 韩炳哲，论忠诚</div>
+    </div>
+
+    <div class="quote-item">
+      <p>"爱意味着绝对信任：当爱一个人时，我授予了他能够摧毁我自己的力量，我希望/相信对方不会使用它。"</p>
+      <div class="quote-source">—— 齐泽克，《事件》（笔记关联引用）</div>
+    </div>
+
+    <div class="quote-item">
+      <p>"我至今相信，恋爱是谈了比不谈好。因为在恋爱的游戏场上，人能够深入学习自己和他人。恋爱会帮助我们了解自己的欲望、嫉妒、控制欲、利己心、宽容和超脱。"</p>
+      <div class="quote-source">—— 上野千鹤子，《始于极限》（笔记关联引用）</div>
+    </div>
+
+    <div class="quote-item">
+      <p>"爱是最小单位的共产主义。"</p>
+      <div class="quote-source">—— 阿兰·巴迪欧（笔记关联引用）</div>
+    </div>
+  </section>
+
+  <!-- 八、个人反思 -->
+  <section class="section" id="reflections">
+    <h2>八、阅读随感</h2>
+
+    <div class="insight-box">
+      <p><strong>他者消亡的根本问题来自于自我的消亡。</strong>他者就像是"自我"未被征服的那片疆土。正是因为自我在逐渐消亡，我们也就难以再看到那片未被征服的疆土，于是他者也逐渐消亡。而自我逐渐消亡的过程，是因为社会过于同质化——我们可能都采用同一种价值判断体系，并且不假思索地将其视为正确；我们倾向于做出一致但并不一定符合个人特质的选择。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>快节奏世界中的爱情困境。</strong>大家找伴侣都非常着急，一开始就需要持续的情绪刺激，一旦感觉聊天对方没有立即达到自己的兴奋点就认为没感觉，根本不给深入了解的机会。但其实，人与人之间总会存在异质性——对高度激情的追求，实际上是一种排他性。我们爱的不是别人，仍是自己。</p>
+    </div>
+
+    <div class="insight-box">
+      <p><strong>"无能为力"的积极意义。</strong>"无能为力"并不是指实际的无力，而是一种对于完全占有、理解和控制他者的不可能性的认识。他者的"异质性"是其存在的基本特性，这意味着他者总是有一部分是不可被完全理解和控制的。承认这一点，恰恰是爱欲的开始——因为爱是扩展心灵，他因为是他，才是我的扩增。</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <p>阅读笔记（摘抄+随感）· 2026年5月26日</p>
+  </div>
+
+</div>
+
+</body>
+</html>
